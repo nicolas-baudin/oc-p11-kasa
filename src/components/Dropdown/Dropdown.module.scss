@@ -1,0 +1,68 @@
+.dropdown {
+	width: 100%;
+	margin: 0 auto;
+	color: white;
+
+	@media screen and (max-width: 667px) {
+		width: 100%;
+	}
+
+	.title {
+		background: #ff6060;
+		margin: 0;
+		border-radius: 5px;
+		padding: 0 1rem;
+		min-height: 52px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&__text {
+			font-size: 24px;
+			font-weight: 500;
+			@media screen and (max-width: 667px) {
+				font-size: 13px;
+			}
+		}
+		&:hover {
+			cursor: pointer;
+			background: darken(#ff6060, 3%);
+		}
+
+		.chevron {
+			transform: rotate(90deg);
+			height: 30px;
+
+			@media screen and (max-width: 667px) {
+				height: 20px;
+			}
+
+			&.open {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	.text {
+		color: #ff6060;
+		background: #f6f6f6;
+		border-radius: 0 0 5px 5px;
+		font-size: 24px;
+		line-height: 142%;
+		padding: 20px;
+		text-align: justify;
+
+		ul {
+			list-style: none;
+		}
+
+		@media screen and (max-width: 667px) {
+			font-size: 12px;
+		}
+	}
+}
+
+.rowDropDown {
+	@media screen and (min-width: 667px) {
+		width: 100%;
+	}
+}

@@ -1,0 +1,25 @@
+.cardsList {
+	width: calc(100% - 40px);
+	margin: 40px auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	justify-content: flex-start;
+	grid-gap: 60px;
+	background: #f6f6f6;
+	border-radius: 25px;
+	padding: 50px;
+
+	li {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	@media screen and (max-width: 667px) {
+		margin-top: 22px;
+		flex-direction: column;
+		padding: 0;
+		gap: 22px;
+		background: none;
+	}
+}
