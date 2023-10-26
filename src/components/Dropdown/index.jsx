@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./Dropdown.module.scss";
 import chevron from "../../assets/chevron.svg";
 import PropTypes from "prop-types";
@@ -12,6 +12,12 @@ Dropdown.propTypes = {
 
 export default function Dropdown({ title, text, list, type }) {
 	const [showText, setShowText] = useState(false);
+	
+	useEffect(() => {
+		if(!showText) return;
+		let timeout = setTimeout(() => setShowText(style.open), 0);
+		return () => clearTimeout(timeout);
+	}, [showText]);
 
 	function handleClick() {
 		setShowText((bool) => !bool);
@@ -21,10 +27,10 @@ export default function Dropdown({ title, text, list, type }) {
 		<div className={`${style.dropdown} ${type === "row" ? style.rowDropDown : ""}`}>
 			<div className={style.title} onClick={handleClick}>
 				<h3 className={style.title__text}>{title}</h3>
-				<img className={`${style.chevron} ${showText && style.open}`} src={chevron} alt="Icon Chevron"></img>
+				<img className={`${style.chevron} ${showText}`} src={chevron} alt="Icon Chevron"></img>
 			</div>
 			{showText && (
-			<div className={style.text}>
+			<div className={`${style.text} ${showText}`}>
 				{text ? (
 					<p>{text}</p>
 				) : (

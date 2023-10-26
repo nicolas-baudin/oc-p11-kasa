@@ -30,27 +30,36 @@
 
 		.chevron {
 			transform: rotate(90deg);
-			height: 30px;
+			height: 24px;
+			transition: transform 300ms;
 
 			@media screen and (max-width: 667px) {
 				height: 20px;
 			}
 
 			&.open {
-				transform: rotate(-90deg);
+				transform: rotate(270deg);
 			}
 		}
 	}
 
 	.text {
+		height: 0;
+		line-height: 0;
+		padding: 0;
+		overflow: hidden;
+		transition: all 400ms;
 		color: #ff6060;
 		background: #f6f6f6;
 		border-radius: 0 0 5px 5px;
 		font-size: 24px;
-		line-height: 142%;
-		padding: 20px;
 		text-align: justify;
-
+		&.open {
+			height: 100%;
+			line-height: 142%;
+			padding: 20px;
+			overflow: auto;
+		}
 		ul {
 			list-style: none;
 		}
