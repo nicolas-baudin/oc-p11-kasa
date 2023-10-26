@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import Error404 from "../Error404";
 import Carousel from "../../components/Carousel";
-// import LeasingInfos from "../../components/LeasingInfos";
+import LeasingInfos from "../../components/LeasingInfos";
 
 import Api from "../../Api";
 
@@ -27,9 +27,15 @@ export default function Leasing() {
 
 	if (leasing) {
 		const Pictures = [...leasing.pictures];
+		const Tags = leasing.tags.map((tag) => ({ name: tag }));
+		const Dropdowns = [
+			{ title: "Description", text: leasing.description },
+			{ title: "Équipements", list: leasing.equipments },
+		];
 		return (
 			<main>
 				<Carousel Pictures={Pictures} />
+				<LeasingInfos leasing={leasing} tags={Tags} dropdowns={Dropdowns} />
 			</main>
 		);
 	} else if (error) {

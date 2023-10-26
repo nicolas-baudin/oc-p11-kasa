@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 Dropdown.propTypes = {
 	title: PropTypes.string,
 	text: PropTypes.string,
-    list: PropTypes.string,
+    list: PropTypes.array,
 	type: PropTypes.string,
 }
 
