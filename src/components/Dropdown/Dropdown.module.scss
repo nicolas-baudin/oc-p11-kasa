@@ -2,12 +2,15 @@
 	width: 100%;
 	margin: 0 auto;
 	color: white;
+	overflow: hidden;
 
 	@media screen and (max-width: 667px) {
 		width: 100%;
 	}
 
 	.title {
+		position: relative;
+		z-index: 2;
 		background: #ff6060;
 		margin: 0;
 		border-radius: 5px;
@@ -16,6 +19,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		overflow: hidden;
 		&__text {
 			font-size: 24px;
 			font-weight: 500;
@@ -44,21 +48,18 @@
 	}
 
 	.text {
-		height: 0;
-		line-height: 0;
-		padding: 0;
-		overflow: hidden;
-		transition: all 400ms;
+		z-index: 1;
+		transform: translateY(-100%);
+		line-height: 150%;
+		padding: 20px;
+		transition: transform 300ms ease-in-out;
 		color: #ff6060;
 		background: #f6f6f6;
 		border-radius: 0 0 5px 5px;
 		font-size: 24px;
 		text-align: justify;
 		&.open {
-			height: 100%;
-			line-height: 142%;
-			padding: 20px;
-			overflow: auto;
+			transform: translateY(0);
 		}
 		ul {
 			list-style: none;
