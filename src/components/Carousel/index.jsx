@@ -14,10 +14,10 @@ export default function Carousel({ Pictures }) {
 
 	return (
 		<div className={styles.imageSlider}>
-			<button className={`${styles.buttons} ${styles.left}`} onClick={previousPicture}><img className={`${styles.chevron} ${styles.chevronLeft}`} src={chevron} alt="Chevron" /></button>
+			{Pictures.length > 1 && <button className={`${styles.buttons} ${styles.left}`} onClick={previousPicture}><img className={`${styles.chevron} ${styles.chevronLeft}`} src={chevron} alt="Chevron" /></button>}
 			<img className={styles.slideImage} src={Pictures[currentIndex]} alt="Carousel" />
-			<p className={styles.slideIndex}>{currentIndex + 1 + "/" + Pictures.length}</p>
-			<button className={`${styles.buttons} ${styles.right}`} onClick={nextPicture}><img className={styles.chevron} src={chevron} alt="Chevron" /></button>
+			{Pictures.length > 1 && <p className={styles.slideIndex}>{currentIndex + 1 + "/" + Pictures.length}</p>}
+			{Pictures.length > 1 && <button className={`${styles.buttons} ${styles.right}`} onClick={nextPicture}><img className={styles.chevron} src={chevron} alt="Chevron" /></button>}
 		</div>
 	);
 }
